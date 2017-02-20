@@ -18,10 +18,8 @@ struct Statistic
 std::string prepare(std::string &s)
 {
 	std::string result;
-	std::cout << "LOL" << std::endl;
 	std::transform(s.begin(), s.end(), s.begin(), ::tolower);
 	result = s;
-	std::cout << "LOL" << std::endl;
 	const std::set<char> punctuationMarks = 
 		{ '.', ',', ':', '!',';',';','<','>','#', '%','^','*','(',')' };
 	std::set<char>::iterator it;
