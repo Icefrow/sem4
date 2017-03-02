@@ -4,28 +4,23 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <set>
 #include <iterator>
+#include <locale>
 
-const int WORDS_COUNT = 5;
+const int WORDS_COUNT = 50;
 
 struct Statistic
 {
 	int count;
 	std::string word;
-} Stat;
+} ;
 
 std::string prepare(std::string &s)
 {
 	std::string result;
 	std::transform(s.begin(), s.end(), s.begin(), ::tolower);
 	result = s;
-	const std::set<char> punctuationMarks = 
-		{ '.', ',', ':', '!',';',';','<','>','#', '%','^','*','(',')' };
-	std::set<char>::iterator it;
-	for(int i = 0; i < punctuationMarks.size(); i++)
-		if (punctuationMarks.find(s[i]) != punctuationMarks.end())
-			result.pop_back();
+	result.erase(std::remove_if(result.begin(), result.end(), ::ispunct), result.end());
 	return result;
 }
 
@@ -36,13 +31,14 @@ bool comp(Statistic &a, Statistic &b)
 
 int main()
 {
+	Statistic Stat;
 	std::ifstream file("file.txt");
 	std::map<std::string, int> m;
 	std::map<std::string, int>::iterator p;
 	if (file.is_open())
 	{
 		std::string word;
-		while (!file.eof());
+		while (!file.eof())
 		{
 			file >> word;
 			word = prepare(word);
@@ -57,6 +53,7 @@ int main()
 		s.push_back(Stat);
 		s.at(i).count = p->second;
 		s.at(i).word = p->first;
+		i++;
 	}
 
 	std::sort(s.begin(), s.end(), comp);
