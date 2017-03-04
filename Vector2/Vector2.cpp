@@ -14,6 +14,19 @@ Vector2::Vector2()
 	y = 0;
 }
 
+/*
+вы реализовали оператор присваивания абсолютно верно.
+но если вы его не напишете, то компилятор сгенерирует точно такой же код для него сам.
+т.е. лучше его самим не реализовывать ...
+
+оператор присвоения стоит реализовывать самостоятельно, если 
+вы в конструкторе, например, выделяете память в куче с помощью оператора new.
+
+тогда тот код, который сгенерирует компилятор, будет работать не так, как хочется:
+ptr = other.ptr;
+
+т.е. скопируется только указатель, а не сами данные.
+*/
 Vector2& Vector2::operator = (const Vector2 &other)
 {
 	x = other.x;
@@ -45,6 +58,9 @@ Vector2  Vector2::operator - (const Vector2 &other) const
 
 Vector2& Vector2::operator += (const Vector2 &other)
 {
+	/*
+		x += other.x;
+	*/
 	x = x + other.x;
 	y = y + other.y;
 	return *this;
@@ -52,6 +68,9 @@ Vector2& Vector2::operator += (const Vector2 &other)
 
 Vector2& Vector2::operator -= (const Vector2 &other)
 {
+	/*
+		x -= other.x;
+	*/
 	x -= other.x;
 	y -= other.y;
 	return *this;
@@ -59,11 +78,17 @@ Vector2& Vector2::operator -= (const Vector2 &other)
 
 float Vector2::operator * (const Vector2& other) const
 {
+	/*
+		пробелы вокруг бинарных операторов
+	*/
 	return (x*other.x + y*other.y);
 }
 
 float Vector2::operator ^ (const Vector2& other) const
 {
+	/*
+		...пробелы здесь и дальше в по тексту
+	*/
 	return (x*other.y - y*other.x);
 }
 
@@ -127,6 +152,10 @@ Vector2& Vector2::rotate(float angle)
 
 Vector2 Vector2::getRotated(float angle) const
 {
+	/*
+		вы уже реализовали выше всю математику поворота. просто переиспользуйте это код:
+		return Vector2(x, y).rotate(angle);
+	*/
 	return Vector2(x*cos(angle / 180 * PI) - y*sin(angle / 180 * PI),
 					y*cos(angle / 180 * PI) + x*sin(angle / 180 * PI));
 }
