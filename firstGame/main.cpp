@@ -3,6 +3,14 @@
 #include <iostream>
 #include "Vector2.h"
 
+/*
+Герой выпускает шарики только когда запускаешь в Release и непосредственно из bin, 
+это связано со строчками 105-109 только я еще не понял как. В остальном программа работает
+идеально, скорость очереди выставляется параметром map.delay.velocity
+В структуре Images я описал резкое затухание картинки update1 (которое не использовал)
+и плавное затухание update2 которое я использовал для молнии (лазера)
+*/
+
 struct Hero
 {
 	Vector2 pos; 
@@ -204,10 +212,10 @@ int main()
 		lightning.setPosition(map.hero.pos.x, map.hero.pos.y);
 		lightning.setRotation(-30 + atan2f(map.hero.direction.y, map.hero.direction.x) * 180 / PI);
 
-		eyes.setColor(sf::Color(255, 255, 255, 255));
+		//eyes.setColor(sf::Color(255, 255, 255, 255));
 		eyes.setPosition((-1300 + map.size.x) / 2, -100 + (-600 + map.size.y) / 2);
 
-		eye1.setColor(sf::Color(255, 255, 255, 255));
+		//eye1.setColor(sf::Color(255, 255, 255, 255));
 		eye1.setPosition(1013 + (-1300 + map.size.x) / 2, 275 + (-600 + map.size.y) / 2);
 		sf::Vector2u eye1Size = eye1.getTexture()->getSize();
 		eye1.setOrigin(eye1Size.x / 2, eye1Size.y / 2);
