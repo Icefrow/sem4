@@ -8,7 +8,7 @@
 это связано со строчками 105-109 только я еще не понял как. В остальном программа работает
 идеально, скорость очереди выставляется параметром map.delay.velocity
 В структуре Images я описал резкое затухание картинки update1 (которое не использовал)
-и плавное затухание update2 которое я использовал для молнии (лазера)
+и плавное затухание update2 которое я использовал для молнии (лазера) <- очень круто смотрится!
 */
 
 struct Hero
@@ -45,17 +45,17 @@ struct Images
 
 	void update1(float dt)
 	{
+		// opaCity
 		x -= speedOpasity*dt;
 		if (x < 0)
 			opasity = 0;
 	}
-
+	
 	void update2(float dt)
 	{
 		if (opasity > 0)
 			opasity -= speedOpasity*dt;
 	}
-
 };
 
 struct Delay
@@ -106,8 +106,11 @@ struct Map
 			hero.pos = Vector2(hero.pos.x, 0);
 		if (hero.pos.y < 0)
 			hero.pos = Vector2(hero.pos.x, size.y);
+		
+		// этот if не нужен + лучше воспользовать std::remove_if вместо этого цикла
 		if (!bullets.empty())
 			for (auto itr = bullets.begin(); itr != bullets.end(); )
+		// fixit: const int Indent = 100;
 				if (itr->pos.x > size.x + 100 || itr->pos.x < -100 || itr->pos.y > size.y + 100 || itr->pos.y < -100)
 					bullets.erase(itr);
 				else ++itr;
@@ -141,6 +144,8 @@ int main()
 	sf::Sprite lightning(textureLightning);
 	sf::Sprite eyes(textureEyes);
 	sf::Sprite eye1(textureEye1);
+	
+	// думаю, этот массив не нужен ... достаточно одной временной переменной
 	sf::Sprite bullet[1000];
 	sf::Vector2u size = texture.getSize();
 
@@ -213,6 +218,7 @@ int main()
 		lightning.setRotation(-30 + atan2f(map.hero.direction.y, map.hero.direction.x) * 180 / PI);
 
 		//eyes.setColor(sf::Color(255, 255, 255, 255));
+		
 		eyes.setPosition((-1300 + map.size.x) / 2, -100 + (-600 + map.size.y) / 2);
 
 		//eye1.setColor(sf::Color(255, 255, 255, 255));
