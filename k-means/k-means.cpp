@@ -5,8 +5,6 @@
 const int K = 6;
 const int IterationCount = 2;
 
-int lol = 0;
-
 using Centroids = std::vector<sf::Color>;
 using ClosestCentroidIndices = std::vector<int>;
 
@@ -100,7 +98,6 @@ Centroids computeMeans(sf::Image& im, ClosestCentroidIndices& ids, const int k)
 		centroids[i].r = buf[i].r;
 		centroids[i].g = buf[i].g;
 		centroids[i].b = buf[i].b;
-		std::cout << ++lol << std::endl;
 	}
 	return centroids;
 }
