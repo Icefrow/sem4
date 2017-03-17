@@ -3,6 +3,10 @@
 #include <cmath>
 #include <iostream>
 
+/*
+не пишите транслитом ... collision, deadline
+*/
+
 class MaterialPoint
 {
 public:
@@ -22,6 +26,9 @@ public:
 
 	void UpdatePosition(float dt)
 	{
+		/*
+		fixit: пробелы вокруг бинарных операторов
+		*/
 		position += velocity*dt;
 		velocity += acceleration*dt;
 	}
@@ -75,6 +82,9 @@ struct Map
 					for (int j = i + 1; j < balls.size(); j++)
 					{
 						Vector2 d = balls[j].position - balls[i].position;
+						/*
+						fixit: у вас же есть метод length у Vector2
+						*/
 						if(sqrt(d.x*d.x + d.y*d.y) <= balls[j].radius + balls[i].radius)
 							if ((balls[j].velocity - balls[i].velocity)*d <= 0)
 							{
