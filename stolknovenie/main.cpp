@@ -3,10 +3,6 @@
 #include <cmath>
 #include <iostream>
 
-/*
-не пишите транслитом ... collision, deadline
-*/
-
 class MaterialPoint
 {
 public:
@@ -26,9 +22,6 @@ public:
 
 	void UpdatePosition(float dt)
 	{
-		/*
-		fixit: пробелы вокруг бинарных операторов
-		*/
 		position += velocity*dt;
 		velocity += acceleration*dt;
 	}
@@ -44,7 +37,14 @@ class Ball : public MaterialPoint
 {
 public:
 	float radius = 0;
+
+	float angle;
+	float angularVelocity;
 	int type;
+	void updateAngle(float dt)
+	{
+		angle += angularVelocity*dt;
+	}
 };
 
 struct Map
@@ -56,44 +56,80 @@ struct Map
 		for (auto& b : balls)
 		{
 			b.UpdatePosition(dt);
+			b.updateAngle(dt);
 		}
 
 		if (!balls.empty())
 			for (int i = 0; i < balls.size(); i++)
 			{
-				if (balls[i].position.x >= size.x - balls[i].radius * 2 && balls[i].velocity.x > 0)
+				if (balls[i].position.x >= size.x - balls[i].radius && balls[i].velocity.x > 0)
 				{
-					balls[i].velocity.x = -balls[i].velocity.x;
+					float dpn = (2 * (balls[i].velocity) /
+						(1 / balls[i].mass)*Vector2(1, 0));
+					float dpt = ((balls[i].velocity)*Vector2(1, 0).perpendicular()
+						- balls[i].angularVelocity*balls[i].radius) /
+						(3 / balls[i].mass);
+					Vector2 dp = dpn*Vector2(1, 0) + dpt*Vector2(1, 0);
+					balls[i].velocity -= dp / balls[i].mass;
+					balls[i].angularVelocity += 2 * dpt / balls[i].mass / balls[i].radius;
 				}
-				if (balls[i].position.x <= 0 && balls[i].velocity.x < 0)
+				if (balls[i].position.x <= balls[i].radius && balls[i].velocity.x < 0)
 				{
-					balls[i].velocity.x = -balls[i].velocity.x;
+					float dpn = (2 * (balls[i].velocity) /
+						(1 / balls[i].mass)*Vector2(-1, 0));
+					float dpt = ((balls[i].velocity)*Vector2(-1, 0).perpendicular()
+						- balls[i].angularVelocity*balls[i].radius) /
+						(3 / balls[i].mass);
+					Vector2 dp = dpn*Vector2(-1, 0) + dpt*Vector2(-1, 0);
+					balls[i].velocity -= dp / balls[i].mass;
+					balls[i].angularVelocity += 2 * dpt / balls[i].mass / balls[i].radius;
 				}
-				if (balls[i].position.y >= size.y - balls[i].radius * 2 && balls[i].velocity.y > 0)
+				if (balls[i].position.y >= size.y - balls[i].radius && balls[i].velocity.y > 0)
 				{
-					balls[i].velocity.y = -balls[i].velocity.y;
+					float dpn = (2 * (balls[i].velocity) /
+						(1 / balls[i].mass)*Vector2(0, 1));
+					float dpt = ((balls[i].velocity)*Vector2(0, 1).perpendicular()
+						- balls[i].angularVelocity*balls[i].radius) /
+						(3 / balls[i].mass);
+					Vector2 dp = dpn*Vector2(0, 1) + dpt*Vector2(0, 1);
+					balls[i].velocity -= dp / balls[i].mass;
+					balls[i].angularVelocity += 2 * dpt / balls[i].mass / balls[i].radius;
 				}
-				if (balls[i].position.y <= 0 && balls[i].velocity.y < 0)
+				if (balls[i].position.y <= balls[i].radius && balls[i].velocity.y < 0)
 				{
-					balls[i].velocity.y = -balls[i].velocity.y;
+					float dpn = (2 * (balls[i].velocity) /
+						(1 / balls[i].mass)*Vector2(0, -1));
+					float dpt = ((balls[i].velocity)*Vector2(0, -1).perpendicular()
+						- balls[i].angularVelocity*balls[i].radius) /
+						(3 / balls[i].mass);
+					Vector2 dp = dpn*Vector2(0, -1) + dpt*Vector2(0, -1);
+					balls[i].velocity -= dp / balls[i].mass;
+					balls[i].angularVelocity += 2 * dpt / balls[i].mass / balls[i].radius;
 				}
 
 				for (int i = 0; i < balls.size(); i++)
 					for (int j = i + 1; j < balls.size(); j++)
 					{
 						Vector2 d = balls[j].position - balls[i].position;
-						/*
-						fixit: у вас же есть метод length у Vector2
-						*/
-						if(sqrt(d.x*d.x + d.y*d.y) <= balls[j].radius + balls[i].radius)
+						if(d.len() <= balls[j].radius + balls[i].radius)
 							if ((balls[j].velocity - balls[i].velocity)*d <= 0)
 							{
-								Vector2 dp = (2 * (balls[i].velocity - balls[j].velocity) /
-									(1 / balls[j].mass + 1 / balls[i].mass)*d.norm())*d.norm();
+								//float Ii = balls[i].mass*pow(balls[i].radius, 2) / 2;
+								//float Ij = balls[j].mass*pow(balls[j].radius, 2) / 2;
+								float dpn = (2 * (balls[i].velocity - balls[j].velocity) /
+									(1 / balls[j].mass + 1 / balls[i].mass)*d.norm());
+								float dpt = ((balls[i].velocity - balls[j].velocity)*d.norm().perpendicular()
+									- balls[i].angularVelocity*balls[i].radius
+									- balls[j].angularVelocity*balls[j].radius) /
+									(3 / balls[j].mass + 3 / balls[i].mass);
+								Vector2 dp = dpn*d.norm() + dpt*d.norm().perpendicular();
 								balls[j].velocity += dp / balls[j].mass;
 								balls[i].velocity -= dp / balls[i].mass;
+								balls[i].angularVelocity += 2 * dpt / balls[i].mass / balls[i].radius;
+								balls[j].angularVelocity += 2 * dpt / balls[j].mass / balls[j].radius;
 							}
 					}
+				
 			}
 	}
 };
@@ -133,7 +169,11 @@ int main()
 			ball.position = Vector2(sf::Mouse::getPosition(window).x - ball.radius, 
 				sf::Mouse::getPosition(window).y - ball.radius);
 			float angle = (rand() % 360) / 180.0f * PI;
-			ball.velocity = Vector2(cos(angle), sin(angle)).norm()*(rand() % 500 + 400);
+			ball.velocity = Vector2(cos(angle), sin(angle)).norm()*(rand() % 300 + 50);
+			//ball.velocity = Vector2(0,0);
+			ball.angle = 0;
+			ball.angularVelocity = 0;
+			ball.angularVelocity = rand() % 200 - 100;
 			map.balls.push_back(ball);
 		}
 
@@ -142,7 +182,10 @@ int main()
 			{
 				balls[i].setPosition(map.balls[i].position.x, 
 					map.balls[i].position.y);
+				texture.setSmooth(1);
 				balls[i].setTexture(texture);
+				balls[i].setOrigin(map.balls[i].radius, map.balls[i].radius);
+				balls[i].setRotation(-map.balls[i].angle);
 				window.draw(balls[i]);
 			}
 
