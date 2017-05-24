@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="asio">
+      <UniqueIdentifier>{93eebb7b-5c45-407a-bf8e-d749e63d7ed9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="program">
+      <UniqueIdentifier>{5d060406-905a-4f6e-a4a1-6b1e1bc0b4c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="helpers">
+      <UniqueIdentifier>{62f96b01-4f6e-465b-8bb9-23cdede3e9a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{122927db-60f8-458d-9c17-2c4eda8b110d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="res\resource.h" />
+    <ClInclude Include="asio\asio.h">
+      <Filter>asio</Filter>
+    </ClInclude>
+    <ClInclude Include="asio\asiodrivers.h">
+      <Filter>asio</Filter>
+    </ClInclude>
+    <ClInclude Include="asio\asiolist.h">
+      <Filter>asio</Filter>
+    </ClInclude>
+    <ClInclude Include="asio\asiosys.h">
+      <Filter>asio</Filter>
+    </ClInclude>
+    <ClInclude Include="asio\ginclude.h">
+      <Filter>asio</Filter>
+    </ClInclude>
+    <ClInclude Include="dsp\Filters.h">
+      <Filter>program</Filter>
+    </ClInclude>
+    <ClInclude Include="asio\iasiodrv.h">
+      <Filter>asio</Filter>
+    </ClInclude>
+    <ClInclude Include="dsp\Capacitor.h">
+      <Filter>program</Filter>
+    </ClInclude>
+    <ClInclude Include="dsp\Inductor.h">
+      <Filter>program</Filter>
+    </ClInclude>
+    <ClInclude Include="effects\Chorus.h">
+      <Filter>program</Filter>
+    </ClInclude>
+    <ClInclude Include="effects\AmplitudeDetector.h">
+      <Filter>program</Filter>
+    </ClInclude>
+    <ClInclude Include="effects\Compressor.h">
+      <Filter>program</Filter>
+    </ClInclude>
+    <ClInclude Include="effects\Limiter.h">
+      <Filter>program</Filter>
+    </ClInclude>
+    <ClInclude Include="effects\Distortion.h">
+      <Filter>program</Filter>
+    </ClInclude>
+    <ClInclude Include="dsp\SineGenerator.h" />
+    <ClInclude Include="Playback.h" />
+    <ClInclude Include="dsp\AttackRelease.h" />
+    <ClInclude Include="dsp\Globals.h">
+      <Filter>program</Filter>
+    </ClInclude>
+    <ClInclude Include="effects\Screamer.h" />
+    <ClInclude Include="effects\NoiseGate.h" />
+    <ClInclude Include="dsp\Limiters.h" />
+    <ClInclude Include="effects\AmpEmulator.h" />
+    <ClInclude Include="effects\Delay.h" />
+    <ClInclude Include="dsp\Convolution.h" />
+    <ClInclude Include="dsp\DelayLine.h" />
+    <ClInclude Include="effects\Reverberator.h" />
+    <ClInclude Include="util\AsioHelper.h">
+      <Filter>asio</Filter>
+    </ClInclude>
+    <ClInclude Include="util\AudioConverter.h" />
+    <ClInclude Include="util\AudioData.h" />
+    <ClInclude Include="util\Buffer.h">
+      <Filter>helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="util\CalcHelper.h" />
+    <ClInclude Include="util\GuidHelper.h">
+      <Filter>helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="util\NonCopyable.h">
+      <Filter>helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="util\ResourceLoader.h" />
+    <ClInclude Include="util\WAVReader.h">
+      <Filter>helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="util\Preparable.h" />
+    <ClInclude Include="dsp\ModulatedDelay.h">
+      <Filter>program</Filter>
+    </ClInclude>
+    <ClInclude Include="effects\Flanger.h" />
+    <ClInclude Include="pch.h">
+      <Filter>helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Oscilloscop.h">
+      <Filter>program</Filter>
+    </ClInclude>
+    <ClInclude Include="util\RefCountedObject.h" />
+    <ClInclude Include="UI\ConfigWindow.h">
+      <Filter>program</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\framework\Canvas.h" />
+    <ClInclude Include="UI\framework\Color.h" />
+    <ClInclude Include="UI\framework\Control.h" />
+    <ClInclude Include="UI\framework\ControlEvents.h" />
+    <ClInclude Include="UI\framework\Coordinates.h" />
+    <ClInclude Include="UI\framework\Cursor.h" />
+    <ClInclude Include="UI\framework\Panel.h" />
+    <ClInclude Include="UI\framework\ResourceManager.h" />
+    <ClInclude Include="UI\framework\ScrollBar.h" />
+    <ClInclude Include="UI\framework\VirtualKey.h" />
+    <ClInclude Include="UI\framework\ToggleButton.h" />
+    <ClInclude Include="UI\FxPanel.h" />
+    <ClInclude Include="UI\LeftPanel.h" />
+    <ClInclude Include="UI\MainForm.h" />
+    <ClInclude Include="UI\framework\Splitter.h" />
+    <ClInclude Include="UI\framework\ScrollableView.h" />
+    <ClInclude Include="UI\framework\HostWindow.h" />
+    <ClInclude Include="ui\framework\ButtonBase.h" />
+    <ClInclude Include="ui\framework\Roller.h" />
+    <ClInclude Include="ui\framework\ScalableControl.h" />
+    <ClInclude Include="devices\Device.h" />
+    <ClInclude Include="ui\framework\Theme.h" />
+    <ClInclude Include="ui\framework\Button.h" />
+    <ClInclude Include="ui\framework\Icon.h" />
+    <ClInclude Include="ui\CtlRoller.h" />
+    <ClInclude Include="UI\FxRack.h" />
+    <ClInclude Include="UI\RightPanel.h" />
+    <ClInclude Include="AudioProcessor.h" />
+    <ClInclude Include="ui\framework\Environment.h" />
+    <ClInclude Include="ui\framework\DragDrop.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AudioProccessor.cpp">
+      <Filter>program</Filter>
+    </ClCompile>
+    <ClCompile Include="asio\asiolist.cpp">
+      <Filter>asio</Filter>
+    </ClCompile>
+    <ClCompile Include="dsp\Filters.cpp">
+      <Filter>program</Filter>
+    </ClCompile>
+    <ClCompile Include="effects\Chorus.cpp">
+      <Filter>program</Filter>
+    </ClCompile>
+    <ClCompile Include="effects\AmplitudeDetector.cpp">
+      <Filter>program</Filter>
+    </ClCompile>
+    <ClCompile Include="effects\Compressor.cpp">
+      <Filter>program</Filter>
+    </ClCompile>
+    <ClCompile Include="effects\Limiter.cpp">
+      <Filter>program</Filter>
+    </ClCompile>
+    <ClCompile Include="effects\Distortion.cpp">
+      <Filter>program</Filter>
+    </ClCompile>
+    <ClCompile Include="dsp\SineGenerator.cpp" />
+    <ClCompile Include="Playback.cpp" />
+    <ClCompile Include="dsp\AttackRelease.cpp" />
+    <ClCompile Include="dsp\Globals.cpp">
+      <Filter>program</Filter>
+    </ClCompile>
+    <ClCompile Include="dsp\Capacitor.cpp" />
+    <ClCompile Include="dsp\Inductor.cpp" />
+    <ClCompile Include="effects\Screamer.cpp" />
+    <ClCompile Include="effects\NoiseGate.cpp" />
+    <ClCompile Include="effects\AmpEmulator.cpp" />
+    <ClCompile Include="effects\Delay.cpp" />
+    <ClCompile Include="dsp\Convolution.cpp" />
+    <ClCompile Include="dsp\DelayLine.cpp" />
+    <ClCompile Include="effects\Reverberator.cpp" />
+    <ClCompile Include="util\AsioHelper.cpp">
+      <Filter>asio</Filter>
+    </ClCompile>
+    <ClCompile Include="util\AudioConverter.cpp" />
+    <ClCompile Include="util\AudioData.cpp" />
+    <ClCompile Include="util\GuidHelper.cpp">
+      <Filter>helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="util\ResourceLoader.cpp" />
+    <ClCompile Include="util\WAVReader.cpp">
+      <Filter>helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="util\Preparable.cpp" />
+    <ClCompile Include="main.cpp">
+      <Filter>program</Filter>
+    </ClCompile>
+    <ClCompile Include="dsp\ModulatedDelay.cpp">
+      <Filter>program</Filter>
+    </ClCompile>
+    <ClCompile Include="effects\Flanger.cpp" />
+    <ClCompile Include="pch.cpp">
+      <Filter>helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\Oscilloscop.cpp">
+      <Filter>program</Filter>
+    </ClCompile>
+    <ClCompile Include="util\RefCountedObject.cpp" />
+    <ClCompile Include="UI\ConfigWindow.cpp">
+      <Filter>program</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\framework\Canvas.cpp" />
+    <ClCompile Include="UI\framework\Color.cpp" />
+    <ClCompile Include="UI\framework\Control.cpp" />
+    <ClCompile Include="UI\framework\ControlEvents.cpp" />
+    <ClCompile Include="UI\framework\Coordinates.cpp" />
+    <ClCompile Include="UI\framework\Cursor.cpp" />
+    <ClCompile Include="UI\framework\Panel.cpp" />
+    <ClCompile Include="UI\framework\ResourceManager.cpp" />
+    <ClCompile Include="UI\framework\ScrollBar.cpp" />
+    <ClCompile Include="UI\framework\ToggleButton.cpp" />
+    <ClCompile Include="UI\AmplifierPanel.cpp" />
+    <ClCompile Include="UI\FxPanel.cpp" />
+    <ClCompile Include="UI\LeftPanel.cpp" />
+    <ClCompile Include="UI\MainForm.cpp" />
+    <ClCompile Include="UI\framework\Splitter.cpp" />
+    <ClCompile Include="UI\FlangerPanel.cpp" />
+    <ClCompile Include="UI\ScreamerPanel.cpp" />
+    <ClCompile Include="UI\OscilloscopePanel.cpp" />
+    <ClCompile Include="UI\framework\ScrollableView.cpp" />
+    <ClCompile Include="UI\framework\HostWindow.cpp" />
+    <ClCompile Include="ui\framework\ButtonBase.cpp" />
+    <ClCompile Include="ui\framework\Roller.cpp" />
+    <ClCompile Include="devices\Device.cpp" />
+    <ClCompile Include="ui\InputPanel.cpp" />
+    <ClCompile Include="ui\framework\Theme.cpp" />
+    <ClCompile Include="ui\CabinetPanel.cpp" />
+    <ClCompile Include="ui\framework\Button.cpp" />
+    <ClCompile Include="ui\framework\Icon.cpp" />
+    <ClCompile Include="ui\CtlRoller.cpp" />
+    <ClCompile Include="UI\FxRack.cpp" />
+    <ClCompile Include="UI\RightPanel.cpp" />
+    <ClCompile Include="ui\OutputPanel.cpp" />
+    <ClCompile Include="ui\framework\Environment.cpp" />
+    <ClCompile Include="ui\framework\DragDrop.cpp" />
+    <ClCompile Include="ui\CompressorPanel.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Started.bmp" />
+    <Image Include="res\Stopped.bmp" />
+    <Image Include="res\Background.bmp" />
+    <Image Include="res\Amplifier.png" />
+    <Image Include="res\AmplifierKnobHigh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="res\MusicFX.exe.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\IronMaiden.wav" />
+    <Media Include="res\Playback.wav" />
+  </ItemGroup>
+</Project>

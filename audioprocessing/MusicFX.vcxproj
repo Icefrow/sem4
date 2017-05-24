@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B9E008EE-F14C-4CB6-9161-3DEA1E6DAFBF}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>MusicFX</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\bin\$(PlatformTarget)-$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\$(PlatformTarget)-$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)bin\$(PlatformTarget)-$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\bin\$(PlatformTarget)-$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\$(PlatformTarget)-$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)bin\$(PlatformTarget)-$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>SFML_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>./;$(SFML)/include;$(BOOST)</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ControlFlowGuard>false</ControlFlowGuard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sfml_s.lib;opengl32.lib;Winmm.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SFML)\lib\$(PlatformTarget)-$(Configuration);$(SFML)\extlibs\libs-msvc\x86</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>$(BOOST);</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MinSpace</Optimization>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>SFML_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>./;$(SFML)/include;$(BOOST)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>$(SFML)\lib\$(PlatformTarget)-$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml_s.lib;opengl32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>$(BOOST);</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="ui\framework\DragDrop.h" />
+    <ClInclude Include="ui\framework\Environment.h" />
+    <ClInclude Include="AudioProcessor.h" />
+    <ClInclude Include="UI\RightPanel.h" />
+    <ClInclude Include="ui\framework\Icon.h" />
+    <ClInclude Include="ui\framework\Button.h" />
+    <ClInclude Include="ui\CtlRoller.h" />
+    <ClInclude Include="devices\Device.h" />
+    <ClInclude Include="ui\framework\Roller.h" />
+    <ClInclude Include="ui\framework\ButtonBase.h" />
+    <ClInclude Include="ui\framework\ScalableControl.h" />
+    <ClInclude Include="UI\framework\ScrollableView.h" />
+    <ClInclude Include="ui\framework\Theme.h" />
+    <ClInclude Include="UI\framework\Splitter.h" />
+    <ClInclude Include="UI\FxRack.h" />
+    <ClInclude Include="UI\LeftPanel.h" />
+    <ClInclude Include="UI\MainForm.h" />
+    <ClInclude Include="UI\FxPanel.h" />
+    <ClInclude Include="UI\framework\ResourceManager.h" />
+    <ClInclude Include="util\RefCountedObject.h" />
+    <ClInclude Include="UI\framework\Canvas.h" />
+    <ClInclude Include="UI\framework\ToggleButton.h" />
+    <ClInclude Include="UI\framework\Panel.h" />
+    <ClInclude Include="UI\framework\ControlEvents.h" />
+    <ClInclude Include="UI\framework\Coordinates.h" />
+    <ClInclude Include="UI\framework\Cursor.h" />
+    <ClInclude Include="UI\framework\Color.h" />
+    <ClInclude Include="UI\framework\Control.h" />
+    <ClInclude Include="dsp\DelayLine.h" />
+    <ClInclude Include="effects\Delay.h" />
+    <ClInclude Include="effects\AmpEmulator.h" />
+    <ClInclude Include="dsp\Convolution.h" />
+    <ClInclude Include="dsp\AttackRelease.h" />
+    <ClInclude Include="dsp\Limiters.h" />
+    <ClInclude Include="effects\Flanger.h" />
+    <ClInclude Include="UI\framework\ScrollBar.h" />
+    <ClInclude Include="util\AudioConverter.h" />
+    <ClInclude Include="effects\AmplitudeDetector.h" />
+    <ClInclude Include="asio\asio.h" />
+    <ClInclude Include="asio\asiodrivers.h" />
+    <ClInclude Include="util\AsioHelper.h" />
+    <ClInclude Include="asio\asiolist.h" />
+    <ClInclude Include="asio\asiosys.h" />
+    <ClInclude Include="util\Buffer.h" />
+    <ClInclude Include="effects\Chorus.h" />
+    <ClInclude Include="dsp\Capacitor.h" />
+    <ClInclude Include="effects\Compressor.h" />
+    <ClInclude Include="dsp\ModulatedDelay.h" />
+    <ClInclude Include="effects\Distortion.h" />
+    <ClInclude Include="dsp\Filters.h" />
+    <ClInclude Include="asio\ginclude.h" />
+    <ClInclude Include="dsp\Globals.h" />
+    <ClInclude Include="util\GuidHelper.h" />
+    <ClInclude Include="asio\iasiodrv.h" />
+    <ClInclude Include="dsp\Inductor.h" />
+    <ClInclude Include="effects\Limiter.h" />
+    <ClInclude Include="UI\ConfigWindow.h" />
+    <ClInclude Include="util\NonCopyable.h" />
+    <ClInclude Include="UI\Oscilloscop.h" />
+    <ClInclude Include="util\CalcHelper.h" />
+    <ClInclude Include="util\ResourceLoader.h" />
+    <ClInclude Include="effects\NoiseGate.h" />
+    <ClInclude Include="Playback.h" />
+    <ClInclude Include="util\Preparable.h" />
+    <ClInclude Include="res\resource.h" />
+    <ClInclude Include="dsp\SineGenerator.h" />
+    <ClInclude Include="util\AudioData.h" />
+    <ClInclude Include="effects\Screamer.h" />
+    <ClInclude Include="effects\Reverberator.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="util\WAVReader.h" />
+    <ClInclude Include="UI\framework\HostWindow.h" />
+    <ClInclude Include="UI\framework\VirtualKey.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ui\CompressorPanel.cpp" />
+    <ClCompile Include="ui\framework\DragDrop.cpp" />
+    <ClCompile Include="ui\framework\Environment.cpp" />
+    <ClCompile Include="ui\OutputPanel.cpp" />
+    <ClCompile Include="UI\RightPanel.cpp" />
+    <ClCompile Include="ui\framework\Icon.cpp" />
+    <ClCompile Include="ui\framework\Button.cpp" />
+    <ClCompile Include="ui\CabinetPanel.cpp" />
+    <ClCompile Include="ui\CtlRoller.cpp" />
+    <ClCompile Include="devices\Device.cpp" />
+    <ClCompile Include="ui\InputPanel.cpp" />
+    <ClCompile Include="ui\framework\Roller.cpp" />
+    <ClCompile Include="ui\framework\ButtonBase.cpp" />
+    <ClCompile Include="UI\framework\ScrollableView.cpp" />
+    <ClCompile Include="UI\OscilloscopePanel.cpp" />
+    <ClCompile Include="UI\ScreamerPanel.cpp" />
+    <ClCompile Include="UI\FlangerPanel.cpp" />
+    <ClCompile Include="ui\framework\Theme.cpp" />
+    <ClCompile Include="UI\framework\Splitter.cpp" />
+    <ClCompile Include="UI\FxRack.cpp" />
+    <ClCompile Include="UI\LeftPanel.cpp" />
+    <ClCompile Include="UI\MainForm.cpp" />
+    <ClCompile Include="UI\AmplifierPanel.cpp" />
+    <ClCompile Include="UI\FxPanel.cpp" />
+    <ClCompile Include="UI\framework\ResourceManager.cpp" />
+    <ClCompile Include="util\RefCountedObject.cpp" />
+    <ClCompile Include="UI\framework\Canvas.cpp" />
+    <ClCompile Include="UI\framework\ToggleButton.cpp" />
+    <ClCompile Include="UI\framework\Panel.cpp" />
+    <ClCompile Include="UI\framework\ControlEvents.cpp" />
+    <ClCompile Include="UI\framework\Coordinates.cpp" />
+    <ClCompile Include="UI\framework\Cursor.cpp" />
+    <ClCompile Include="UI\framework\Color.cpp" />
+    <ClCompile Include="UI\framework\Control.cpp" />
+    <ClCompile Include="dsp\DelayLine.cpp" />
+    <ClCompile Include="effects\Delay.cpp" />
+    <ClCompile Include="effects\AmpEmulator.cpp" />
+    <ClCompile Include="dsp\Convolution.cpp" />
+    <ClCompile Include="dsp\AttackRelease.cpp" />
+    <ClCompile Include="dsp\Capacitor.cpp" />
+    <ClCompile Include="dsp\Inductor.cpp" />
+    <ClCompile Include="effects\Flanger.cpp" />
+    <ClCompile Include="UI\framework\ScrollBar.cpp" />
+    <ClCompile Include="util\AudioConverter.cpp" />
+    <ClCompile Include="effects\AmplitudeDetector.cpp" />
+    <ClCompile Include="util\AsioHelper.cpp" />
+    <ClCompile Include="asio\asiolist.cpp" />
+    <ClCompile Include="AudioProccessor.cpp" />
+    <ClCompile Include="effects\Chorus.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="effects\Compressor.cpp" />
+    <ClCompile Include="dsp\ModulatedDelay.cpp" />
+    <ClCompile Include="effects\Distortion.cpp" />
+    <ClCompile Include="dsp\Filters.cpp" />
+    <ClCompile Include="dsp\Globals.cpp" />
+    <ClCompile Include="util\GuidHelper.cpp" />
+    <ClCompile Include="effects\Limiter.cpp" />
+    <ClCompile Include="UI\ConfigWindow.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="UI\Oscilloscop.cpp" />
+    <ClCompile Include="dsp\SineGenerator.cpp" />
+    <ClCompile Include="util\AudioData.cpp" />
+    <ClCompile Include="util\ResourceLoader.cpp" />
+    <ClCompile Include="effects\NoiseGate.cpp" />
+    <ClCompile Include="Playback.cpp" />
+    <ClCompile Include="effects\Screamer.cpp" />
+    <ClCompile Include="util\Preparable.cpp" />
+    <ClCompile Include="effects\Reverberator.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="util\WAVReader.cpp" />
+    <ClCompile Include="UI\framework\HostWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Amplifier.png" />
+    <Image Include="res\AmplifierKnobHigh.png" />
+    <Image Include="res\Background.bmp" />
+    <Image Include="res\Started.bmp" />
+    <Image Include="res\Stopped.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="res\MusicFX.exe.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\IronMaiden.wav" />
+    <Media Include="res\Playback.wav" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
